@@ -14,33 +14,30 @@ import com.example.android.android_me.R;
 import java.util.List;
 
 /**
- * Created by aportillo on 18/05/2017.
+ * Created by aportillo on 22/05/2017.
  */
 
-public class HeadPartFragment extends Fragment {
+public class LegsPartFragment extends Fragment {
 
     private List<Integer> mImageIds;
     private int mListIndex;
-    private static final String TAG = "HeadPartFragment";
+    private static final String TAG = "LegsPartFragment";
 
-    public HeadPartFragment() {
-
+    public LegsPartFragment() {
     }
 
-    // TODO:
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_body_part, container, false);
         ImageView imageView = (ImageView) rootView.findViewById(R.id.body_part_image_view);
-        // imageView.setImageResource(AndroidImageAssets.getHeads().get(0));
+        //  imageView.setImageResource(AndroidImageAssets.getLegs().get(0));
         if (mImageIds != null) {
             imageView.setImageResource(mImageIds.get(mListIndex));
         } else {
             Log.v(TAG, "List is empty");
         }
         return rootView;
-
     }
 
     public int getListIndex() {
@@ -59,3 +56,4 @@ public class HeadPartFragment extends Fragment {
         this.mImageIds = mImageIds;
     }
 }
+

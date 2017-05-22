@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import com.example.android.android_me.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,6 +23,8 @@ public class BodyPartFragment extends Fragment {
     private List<Integer> mImageIds;
     private int mListIndex;
     private static final String TAG = "BodyPartFragment";
+    private static final String IMAGE_ID_LIST = "image_ids";
+    private static final String LIST_INDEX = "list_index";
 
     public BodyPartFragment() {
 
@@ -31,11 +34,26 @@ public class BodyPartFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            mImageIds = savedInstanceState.getIntegerArrayList(IMAGE_ID_LIST);
+            mListIndex = savedInstanceState.getInt(LIST_INDEX);
+        }
         View rootView = inflater.inflate(R.layout.fragment_body_part, container, false);
-        ImageView imageView = (ImageView) rootView.findViewById(R.id.body_part_image_view);
+        final ImageView imageView = (ImageView) rootView.findViewById(R.id.body_part_image_view);
         //imageView.setImageResource(AndroidImageAssets.getBodies().get(0));
         if (mImageIds != null) {
             imageView.setImageResource(mImageIds.get(mListIndex));
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListIndex < mImageIds.size() - 1) {
+                        mListIndex++;
+                    } else {
+                        mListIndex = 0;
+                    }
+                    imageView.setImageResource(mImageIds.get(mListIndex));
+                }
+            });
         } else {
             Log.v(TAG, "List empty");
         }
@@ -43,16 +61,14 @@ public class BodyPartFragment extends Fragment {
         return rootView;
     }
 
-    public List<Integer> getImageIds() {
-        return mImageIds;
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putIntegerArrayList(IMAGE_ID_LIST, (ArrayList<Integer>) mImageIds);
+        outState.putInt(LIST_INDEX, mListIndex);
     }
 
     public void setImageIds(List<Integer> mImageIds) {
         this.mImageIds = mImageIds;
-    }
-
-    public int getListIndex() {
-        return mListIndex;
     }
 
     public void setListIndex(int mListIndex) {

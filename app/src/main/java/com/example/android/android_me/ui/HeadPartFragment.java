@@ -1,3 +1,4 @@
+/*
 package com.example.android.android_me.ui;
 
 import android.os.Bundle;
@@ -13,9 +14,11 @@ import com.example.android.android_me.R;
 
 import java.util.List;
 
+*/
 /**
  * Created by aportillo on 18/05/2017.
- */
+ *//*
+
 
 public class HeadPartFragment extends Fragment {
 
@@ -59,3 +62,4 @@ public class HeadPartFragment extends Fragment {
         this.mImageIds = mImageIds;
     }
 }
+*/

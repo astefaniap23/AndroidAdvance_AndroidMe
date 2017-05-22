@@ -17,21 +17,26 @@ public class AndroidMeActivity extends AppCompatActivity {
         //Fragmente transaction
         FragmentManager fragmentManager = getSupportFragmentManager();
 
-        HeadPartFragment headFragment = new HeadPartFragment();
+        BodyPartFragment headFragment = new BodyPartFragment();
         headFragment.setImageIds(AndroidImageAssets.getHeads());
         headFragment.setListIndex(2);
-        fragmentManager.beginTransaction().add(R.id.head_container, headFragment).
-                commit();
+        fragmentManager.beginTransaction()
+                .add(R.id.head_container, headFragment)
+                .commit();
 
         BodyPartFragment bodyFragment = new BodyPartFragment();
         bodyFragment.setImageIds(AndroidImageAssets.getBodies());
         bodyFragment.setListIndex(2);
-        fragmentManager.beginTransaction().add(R.id.body_container, bodyFragment).commit();
+        fragmentManager.beginTransaction()
+                .add(R.id.body_container, bodyFragment)
+                .commit();
 
-        LegsPartFragment legsFragment = new LegsPartFragment();
+        BodyPartFragment legsFragment = new BodyPartFragment();
         legsFragment.setImageIds(AndroidImageAssets.getLegs());
         legsFragment.setListIndex(2);
-        fragmentManager.beginTransaction().add(R.id.legs_container, legsFragment).commitNow();
+        fragmentManager.beginTransaction()
+                .add(R.id.legs_container, legsFragment)
+                .commitNow();
     }
 
 

@@ -12,21 +12,23 @@ import com.example.android.android_me.R;
 import com.example.android.android_me.data.AndroidImageAssets;
 
 /**
- * Created by aportillo on 22/05/2017.
+ * Created by aportillo on 18/05/2017.
  */
 
-public class BodyPartFragment extends Fragment {
-    public BodyPartFragment() {
+public class HeadPartFragment extends Fragment {
+
+    public HeadPartFragment() {
 
     }
-    // TODO:
+ // TODO:
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_body_part,container,false);
         ImageView imageView = (ImageView)rootView.findViewById(R.id.body_part_image_view);
-        imageView.setImageResource(AndroidImageAssets.getBodies().get(0));
+        imageView.setImageResource(AndroidImageAssets.getHeads().get(0));
         return rootView;
 
     }
+
 }

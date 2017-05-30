@@ -38,7 +38,7 @@ public class AndroidMeActivity extends AppCompatActivity {
             //    legsFragment.setListIndex(2);
             fragmentManager.beginTransaction()
                     .add(R.id.legs_container, legsFragment)
-                    .commitNow();
+                    .commit();
         }
     }
 
